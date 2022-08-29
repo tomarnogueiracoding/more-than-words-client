@@ -1,7 +1,7 @@
 function HomePage() {
   return (
-    <div>
-      <h1>Homepage</h1>
+    <div className="bg-amber-400 h-screen">
+      <h1 className="text-5xl">Homepage</h1>
     </div>
   );
 }
