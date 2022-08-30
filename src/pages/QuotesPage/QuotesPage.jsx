@@ -55,7 +55,7 @@ function QuotesPage() {
       {/* Famous Quotes */}
       <div>
         {famousQuote && (
-          <div className="p-5">
+          <div className="p-5 bg-blue-300 mx-20 my-5 rounded-full flex-col">
             <h6>- - Famous Quote Example Placeholder - -</h6>
             <h3 className="p-2 text-2xl">{famousQuote.content}</h3>
             <h4 className="p-2 text-1xl">{famousQuote.author}</h4>
@@ -70,7 +70,7 @@ function QuotesPage() {
       {/* Inspirational Quotes */}
       <div>
         {inspirationalQuote && (
-          <div className="p-5">
+          <div className="p-5 bg-blue-300 mx-20 my-5 rounded-full flex-col">
             <h6>- - Inspirational Quote Example Placeholder - -</h6>
             <h3 className="p-2 text-2xl">{inspirationalQuote.content}</h3>
             <h4 className="p-2 text-1xl">{inspirationalQuote.author}</h4>
@@ -85,7 +85,7 @@ function QuotesPage() {
       {/* Famous Quotes */}
       <div>
         {wisdomQuote && (
-          <div className="p-5">
+          <div className="p-5 bg-blue-300 mx-20 my-5 rounded-full flex-col">
             <h6>- - Wisdom Quote Example Placeholder - -</h6>
             <h3 className="p-2 text-2xl">{wisdomQuote.content}</h3>
             <h4 className="p-2 text-1xl">{wisdomQuote.author}</h4>
