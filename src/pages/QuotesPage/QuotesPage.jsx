@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import addToFavoritesImg from '../../assets/img/add-to-favorites.png';
 
 const API_URL = 'http://localhost:5005';
 
@@ -40,17 +41,16 @@ function QuotesPage() {
     <div className="bg-amber-400 h-screen">
       {/* Quote Buttons */}
       <div className=" p-5">
-        <button className="px-3 my-3 mx-3 rounded-full bg-pink-400 hover:bg-pink-300 text-white">
+        <button className="px-5 py-2 my-3 mx-3 text-white rounded-full bg-pink-500 hover:bg-pink-600 hover:text-white">
           Famous Quote
         </button>
-        <button className="px-3 my-3 mx-3 rounded-full bg-pink-400 hover:bg-pink-300 text-white">
+        <button className="px-5 py-2 my-3 mx-3 text-white rounded-full bg-pink-500 hover:bg-pink-600 hover:text-white">
           Inspirational Quote
         </button>
-        <button className="px-3 my-3 mx-3 rounded-full bg-pink-400 hover:bg-pink-300 text-white">
+        <button className="px-5 py-2 my-3 mx-3 text-white rounded-full bg-pink-500 hover:bg-pink-600 hover:text-white">
           Wisdom Quote
         </button>
       </div>
-      <hr />
 
       {/* Famous Quotes */}
       <div>
@@ -59,12 +59,11 @@ function QuotesPage() {
             <h6>- - Famous Quote Example Placeholder - -</h6>
             <h3 className="p-2 text-2xl">{famousQuote.content}</h3>
             <h4 className="p-2 text-1xl">{famousQuote.author}</h4>
-            <button className="px-3 my-3 mx-3 rounded-full bg-pink-400 hover:bg-pink-300 text-white">
-              Add to Favorites
+            <button className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white">
+              <img className="w-10" src={addToFavoritesImg} />
             </button>
           </div>
         )}
-        <hr />
       </div>
 
       {/* Inspirational Quotes */}
@@ -74,12 +73,11 @@ function QuotesPage() {
             <h6>- - Inspirational Quote Example Placeholder - -</h6>
             <h3 className="p-2 text-2xl">{inspirationalQuote.content}</h3>
             <h4 className="p-2 text-1xl">{inspirationalQuote.author}</h4>
-            <button className="px-3 my-3 mx-3 rounded-full bg-pink-400 hover:bg-pink-300 text-white">
-              Add to Favorites
+            <button className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white">
+              <img className="w-10" src={addToFavoritesImg} />
             </button>
           </div>
         )}
-        <hr />
       </div>
 
       {/* Famous Quotes */}
@@ -89,12 +87,11 @@ function QuotesPage() {
             <h6>- - Wisdom Quote Example Placeholder - -</h6>
             <h3 className="p-2 text-2xl">{wisdomQuote.content}</h3>
             <h4 className="p-2 text-1xl">{wisdomQuote.author}</h4>
-            <button className="px-3 my-3 mx-3 rounded-full bg-pink-400 hover:bg-pink-300 text-white">
-              Add to Favorites
+            <button className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white">
+              <img className="w-10" src={addToFavoritesImg} />
             </button>
           </div>
         )}
-        <hr />
       </div>
     </div>
   );
