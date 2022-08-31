@@ -37,43 +37,68 @@ function SignupPage(props) {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        {/* First Name input */}
-        <label htmlFor="firstname">First Name:</label>
-        <input
-          type="text"
-          name="firstname"
-          value={firstname}
-          onChange={handleFirstname}
-        />
-        {/* Last Name input */}
-        <label htmlFor="lastname">Last Name:</label>
-        <input
-          type="text"
-          name="lastname"
-          value={lastname}
-          onChange={handleLastname}
-        />
-        {/* Email input */}
-        <label htmlFor="email">Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-        {/* Password input */}
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-        {/* Submit button */}
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className="bg-amber-400 h-screen p-10 flex justify-center">
+      <div>
+        <h1>Sign Up</h1>
+        <form
+          className="p-5 bg-blue-300 w-96 my-5 rounded-tl-3xl rounded-br-3xl flex-col "
+          onSubmit={handleSubmit}
+        >
+          {/* First Name input */}
+          <div className="p-5">
+            <label htmlFor="firstname">First Name:</label>
+            <input
+              type="text"
+              name="firstname"
+              value={firstname}
+              onChange={handleFirstname}
+            />
+          </div>
+          {/* Last Name input */}
+          <div className="p-5">
+            <label htmlFor="lastname">Last Name:</label>
+            <input
+              type="text"
+              name="lastname"
+              value={lastname}
+              onChange={handleLastname}
+            />
+          </div>
+          {/* Email input */}
+          <div className="p-5">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+          </div>
+          {/* Password input */}
+          <div className="p-5">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+          </div>
+          {/* Submit button */}
+          <div className="p-5">
+            <button
+              className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
 
-      {errorMessage && <p>{errorMessage}</p>}
-      <p>Already have an account?</p>
-      <Link to={'/login'}>Login</Link>
+        {errorMessage && <p>{errorMessage}</p>}
+        <p>Already have an account?</p>
+        <Link to={'/login'}>Login</Link>
+      </div>
     </div>
   );
 }

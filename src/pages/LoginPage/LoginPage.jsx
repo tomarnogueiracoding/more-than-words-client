@@ -36,25 +36,46 @@ function LoginPage(props) {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onClick={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-        <label htmlFor="password">Passord:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="bg-amber-400 h-screen p-10 flex justify-center">
+      <div>
+        <h1>Login</h1>
+        <form
+          className="p-5 bg-blue-300 w-96 my-5 rounded-tl-3xl rounded-br-3xl flex-col "
+          onClick={handleSubmit}
+        >
+          <div className="p-5">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+          </div>
+          <div className="p-5">
+            <label htmlFor="password">Passord:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+          </div>
+          <div className="p-5">
+            <button
+              className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+        </form>
 
-      {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && <p>{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={'/signup'}>Sign Up</Link>
+        <p>Don't have an account yet?</p>
+        <Link to={'/signup'}>Sign Up</Link>
+      </div>
     </div>
   );
 }
