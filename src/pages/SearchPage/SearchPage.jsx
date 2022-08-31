@@ -1,39 +1,43 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const API_URL = 'http://localhost:5005';
 
 function SearchPage() {
-  const [searchQuotes, setSearchQuotes] = useState('');
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
 
-  const getSearchQuotes = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const body = { query };
+
     axios
-      .get(`${API_URL}/quotes/search` + search)
+      .put(`${API_URL}/api/quotes/search`, body)
       .then((response) => {
-        setSearchQuotes(response.data);
+        setResults(response.data);
       })
       .catch((error) => console.log(error));
   };
 
-  useEffect(() => {
-    getSearchQuotes();
-  }, []);
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+  const handleQuery = (e) => setQuery(e.target.value);
 
   return (
     <>
-      <input name="search" value={search} onChange={handleChange} />
-      {searchQuotes.map((quote) => {
-        return (
-          <div>
-            <p>{quote.content}</p>
-            <p>{quote.author}</p>
-          </div>
-        );
-      })}
+      <h1>Search</h1>
+      <form onSubmit={handleSubmit}>
+        <input name="search" value={query} onChange={handleQuery} />
+        <button type="submit">Search</button>
+      </form>
+      {results.length > 0 &&
+        results.map((quote) => {
+          return (
+            <div>
+              <p>{quote.content}</p>
+              <p>{quote.author}</p>
+            </div>
+          );
+        })}
     </>
   );
 }

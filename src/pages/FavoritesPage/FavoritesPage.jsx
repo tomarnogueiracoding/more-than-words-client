@@ -6,6 +6,8 @@ const API_URL = 'http://localhost:5005';
 
 function FavoritesPage() {
   const [userFavorites, setUserFavorites] = useState([]);
+  const [addToFavorites, setAddToFavorites] = useState(null);
+  const [quote, setQuote] = useState(null);
   const { user } = useContext(AuthContext);
 
   const getUserFavorites = async () => {
@@ -17,6 +19,19 @@ function FavoritesPage() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const removeFromFavorites = (quote) => {
+    const { content, author } = quote;
+    const userId = user._id;
+    const body = { content, author, userId };
+    axios
+      .delete(`${API_URL}/api/quotes/addFavorite`, body)
+      .then((response) => {
+        console.log(response.data);
+        setAddToFavorites(response.data);
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
@@ -32,7 +47,10 @@ function FavoritesPage() {
             <div className="p-5 bg-blue-300 mx-20 my-5 rounded-tl-3xl rounded-br-3xl flex-col">
               <h3 className="p-2 text-2xl">{quote.content}</h3>
               <h4 className="p-2 text-1xl">{quote.author}</h4>
-              <button className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white">
+              <button
+                onClick={() => removeFromFavorites(quote)}
+                className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
+              >
                 Remove
               </button>
             </div>

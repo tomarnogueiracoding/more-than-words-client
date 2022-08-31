@@ -13,8 +13,8 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="relative container mx-auto p-4 bg-pink-500 w-full">
-      <div className="flex items-center justify-between">
+    <nav className="navbar z-10 bg-pink-500">
+      <div className="flex-1">
         {/* Logo */}
         <div className="pt-2">
           <img
@@ -24,40 +24,52 @@ function Navbar() {
           />
         </div>
         {/* Menu Items */}
-        <div className="hidden md:flex space-x-6">
-          <Link to="/">
-            <button className="px-1 py-2 text-white rounded-full hover:bg-pink-400 hover:text-white">
-              <img className="w-8" src={homeIcon} />
-            </button>
-          </Link>
+        <div className=" flex space-x-6">
+          <div>
+            <Link to="/">
+              <button className="px-1 py-2 text-white rounded-full hover:bg-pink-400 hover:text-white">
+                <img className="w-8" src={homeIcon} />
+              </button>
+            </Link>
+          </div>
 
           {isLoggedIn && (
             <>
-              <Link to="/quotes">
-                <button className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white">
-                  <img className="w-8" src={quoteIcon} />
-                </button>
-              </Link>
-              <Link to="/favorites">
-                <button className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white">
-                  <img className="w-8" src={favoritesIcon} />
-                </button>
-              </Link>
-              <Link to="/search">
-                <button className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white">
-                  <img className="w-8" src={searchIcon} />
-                </button>
-              </Link>
+              <div>
+                <Link to="/quotes">
+                  <button className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white">
+                    <img className="w-8" src={quoteIcon} />
+                  </button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/favorites">
+                  <button className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white">
+                    <img className="w-8" src={favoritesIcon} />
+                  </button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/search">
+                  <button className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white">
+                    <img className="w-8" src={searchIcon} />
+                  </button>
+                </Link>
+              </div>
 
-              <button
-                className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white"
-                onClick={logOutUser}
-              >
-                <img className="w-8" src={logoutIcon} />
-              </button>
-              <div className=" text-white px-3 py-2">
-                {/* <p>{user && user.firstname + ' ' + user.lastname}</p> */}
-                <img className="w-8 rounded-full" src={profileImg} />
+              <div>
+                <button
+                  className="px-1 py-2 text-white  rounded-full hover:bg-pink-400 hover:text-white"
+                  onClick={logOutUser}
+                >
+                  <img className="w-8" src={logoutIcon} />
+                </button>
+              </div>
+              <div>
+                <div className=" text-white px-3 py-2">
+                  {/* <p>{user && user.firstname + ' ' + user.lastname}</p> */}
+                  <img className="w-8 rounded-full" src={profileImg} />
+                </div>
               </div>
             </>
           )}

@@ -11,6 +11,7 @@ import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
+import SpotifyPlayer from './pages/SpotifyPlayer';
 
 function App() {
   return (
@@ -57,6 +58,14 @@ function App() {
           element={
             <IsPrivate>
               <EditProfilePage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/spotify"
+          element={
+            <IsPrivate>
+              <SpotifyPlayer />
             </IsPrivate>
           }
         />

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../context/auth.context';
@@ -9,9 +9,11 @@ function EditProfilePage() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [profileImg, setProfileImg] = useState('');
+  const [fileUrl, setFileUrl] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const { user } = useContext(AuthContext);
-  /*  const { logOutUser } = useContext(AuthContext); */
+  const { logOutUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -32,27 +34,43 @@ function EditProfilePage() {
 
   const handleFirstname = (e) => setFirstname(e.target.value);
   const handleLastname = (e) => setLastname(e.target.value);
-  const handleProfileImg = (e) => setProfileImg(e.target.value);
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append('profileImg', e.target.files[0]);
+
+    axios
+      .put(`${API_URL}/api/upload`, uploadData)
+      .then((response) => {
+        setProfileImg(response.data.fileUrl);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log('Error while uploading the file: ', error);
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const body = { firstname, lastname, profileImg };
+
+    axios
+      .put(`${API_URL}/api/users/${user._id}`, body)
+      .then(() => {
+        setFirstname('');
+        setLastname('');
+        setProfileImg('');
+        navigate('/profile');
+      })
+      .catch((error) => console.log(error));
   };
 
-  const body = { firstname, lastname, profileImg };
-
-  axios
-    .put(`${API_URL}/api/users/${user}`, body)
-    .then(() => {
-      setFirstname('');
-      setLastname('');
-      setProfileImg('');
-      navigate('/profile');
-    })
-    .catch((error) => console.log(error));
+  /*   if (!firstname || !lastname || !profileImg) return null; */
 
   const deleteProfile = async () => {
     try {
-      let response = await axios.delete(`${API_URL}/api/users/${user}`);
+      let response = await axios.delete(`${API_URL}/api/users/${user._id}`);
       logOutUser();
       navigate('/');
     } catch (error) {
@@ -77,8 +95,16 @@ function EditProfilePage() {
           value={lastname}
           onChange={handleLastname}
         />
-        <label htmlFor="profileImg">Profile Picture: </label>
-        <input type="file" name="profileImg" onChange={handleProfileImg} />
+        <div>
+          <label htmlFor="upload-file">Upload Profile Picture</label>
+          <input
+            type="file"
+            name="upload-file"
+            accept=".jpeg, .jpg, .png, .bmp, .webp"
+            onChange={(e) => handleFileUpload(e)}
+          />
+        </div>
+        <button type="submit">Submit</button>
       </form>
 
       <button onClick={deleteProfile}>Delete profile</button>
