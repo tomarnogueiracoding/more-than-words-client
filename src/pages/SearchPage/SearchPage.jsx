@@ -13,7 +13,7 @@ function SearchPage() {
     const body = { query };
 
     axios
-      .put(`${API_URL}/api/quotes/search`, body)
+      .get(`${API_URL}/api/quotes/search`, body)
       .then((response) => {
         setResults(response.data);
       })

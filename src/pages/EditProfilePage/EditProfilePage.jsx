@@ -40,8 +40,9 @@ function EditProfilePage() {
     uploadData.append('profileImg', e.target.files[0]);
 
     axios
-      .put(`${API_URL}/api/upload`, uploadData)
+      .post(`${API_URL}/api/upload`, uploadData)
       .then((response) => {
+        console.log(response.data.fileUrl);
         setProfileImg(response.data.fileUrl);
         setLoading(false);
       })

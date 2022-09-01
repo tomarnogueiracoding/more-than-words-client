@@ -22,14 +22,10 @@ function FavoritesPage() {
   };
 
   const removeFromFavorites = (quote) => {
-    const { content, author } = quote;
-    const userId = user._id;
-    const body = { content, author, userId };
     axios
-      .delete(`${API_URL}/api/quotes/addFavorite`, body)
-      .then((response) => {
-        console.log(response.data);
-        setAddToFavorites(response.data);
+      .delete(`${API_URL}/api/quotes/${quote._id}/${user._id}`)
+      .then(() => {
+        getUserFavorites();
       })
       .catch((error) => console.log(error));
   };

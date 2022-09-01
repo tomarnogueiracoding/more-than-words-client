@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/auth.context';
+import { Link } from 'react-router-dom';
 
 const API_URL = 'http://localhost:5005';
 
@@ -28,6 +29,14 @@ function ProfilePage() {
           <img src={profile.profileImg} />
           <p>{profile.firstname}</p>
           <p>{profile.lastname}</p>
+          <div className="p-5">
+            <button
+              className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
+              type="submit"
+            >
+              <Link to="/profile/edit">Edit Profile</Link>
+            </button>
+          </div>
         </div>
       )}
     </div>

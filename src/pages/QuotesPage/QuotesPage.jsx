@@ -106,37 +106,14 @@ function QuotesPage() {
               onClick={() => addToUserFavorites(quote)}
               className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
             >
-              <img className="w-10" src={addToFavoritesImg} />
+              <img
+                className="w-10"
+                src="https://res.cloudinary.com/dvzekm9zq/image/upload/v1662037088/more-than-words/add-to-favorites_payutl.png"
+              />
             </button>
           </div>
         )}
       </div>
-
-      {/* Inspirational Quotes 
-      <div>
-        {inspirationalQuote && (
-          <div className="p-5 bg-blue-300 mx-20 my-5 rounded-tl-3xl rounded-br-3xl  flex-col">
-            <h3 className="p-2 text-2xl">{inspirationalQuote.content}</h3>
-            <h4 className="p-2 text-1xl">{inspirationalQuote.author}</h4>
-            <button className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white">
-              <img className="w-10" src={addToFavoritesImg} />
-            </button>
-          </div>
-        )}
-      </div>
-
-      /* Wisdom Quotes 
-      <div>
-        {wisdomQuote && (
-          <div className="p-5 bg-blue-300 mx-20 my-5 rounded-tl-3xl rounded-br-3xl   flex-col">
-            <h3 className="p-2 text-2xl">{wisdomQuote.content}</h3>
-            <h4 className="p-2 text-1xl">{wisdomQuote.author}</h4>
-            <button className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white">
-              <img className="w-10" src={addToFavoritesImg} />
-            </button>
-          </div>
-        )}
-      </div> */}
     </div>
   );
 }
