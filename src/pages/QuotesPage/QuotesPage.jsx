@@ -3,7 +3,7 @@ import axios from 'axios';
 import addToFavoritesImg from '../../assets/img/add-to-favorites.png';
 import { AuthContext } from '../../context/auth.context';
 
-const API_URL = 'http://localhost:5005';
+const API_URL = 'https://more-than-wordz.herokuapp.com';
 
 function QuotesPage() {
   const [famousQuote, setFamousQuote] = useState([]);
