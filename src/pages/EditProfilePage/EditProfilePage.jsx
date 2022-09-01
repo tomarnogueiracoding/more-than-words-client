@@ -80,35 +80,54 @@ function EditProfilePage() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="firstname">First name: </label>
-        <input
-          type="text"
-          name="firstname"
-          value={firstname}
-          onChange={handleFirstname}
-        />
-        <label htmlFor="lastname">Last name: </label>
-        <input
-          type="text"
-          name="lastname"
-          value={lastname}
-          onChange={handleLastname}
-        />
-        <div>
-          <label htmlFor="upload-file">Upload Profile Picture</label>
-          <input
-            type="file"
-            name="upload-file"
-            accept=".jpeg, .jpg, .png, .bmp, .webp"
-            onChange={(e) => handleFileUpload(e)}
-          />
+    <div className="hero min-h-screen bg-gradient-to-r from-amber-400 to-amber-300">
+      <form
+        className="p-5 bg-blue-300  my-5 rounded-tl-3xl rounded-br-3xl"
+        onSubmit={handleSubmit}
+      >
+        <div className="form-control my-3">
+          <label className="input-group input-group-sm" htmlFor="firstname">
+            <span>First Name</span>
+            <input
+              className="input input-bordered input-sm w-60"
+              type="text"
+              name="firstname"
+              value={firstname}
+              onChange={handleFirstname}
+            />
+          </label>
         </div>
-        <button type="submit">Submit</button>
+        <div className="form-control my-3">
+          <label className="input-group input-group-sm" htmlFor="lastname">
+            <span>Last Name</span>
+            <input
+              className="input input-bordered input-sm w-60 "
+              type="text"
+              name="lastname"
+              value={lastname}
+              onChange={handleLastname}
+            />
+          </label>
+        </div>
+        <div>
+          <label className="form-control my-3" htmlFor="upload-file">
+            Upload Profile Picture
+            <input
+              className="input input-bordered input-sm "
+              type="file"
+              name="upload-file"
+              accept=".jpeg, .jpg, .png, .bmp, .webp"
+              onChange={(e) => handleFileUpload(e)}
+            />
+          </label>
+        </div>
+        <button className="btn btn-secondary" type="submit">
+          Submit
+        </button>
+        <button className="btn btn-ghost" onClick={deleteProfile}>
+          Delete profile
+        </button>
       </form>
-
-      <button onClick={deleteProfile}>Delete profile</button>
     </div>
   );
 }

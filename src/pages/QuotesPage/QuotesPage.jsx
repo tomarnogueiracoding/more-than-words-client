@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import addToFavoritesImg from '../../assets/img/add-to-favorites.png';
 import { AuthContext } from '../../context/auth.context';
 
 const API_URL = 'http://localhost:5005';

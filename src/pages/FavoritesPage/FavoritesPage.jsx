@@ -36,7 +36,7 @@ function FavoritesPage() {
 
   return (
     <div className="bg-gradient-to-r from-amber-400 to-amber-300 min-h-screen py-10">
-      <h1 className="text-2xl text-pink-600 font-bold">Your Favorite Quotes</h1>
+      <h1 className="text-2xl text-pink-600 ">Your Favorite Quotes</h1>
       {userFavorites &&
         userFavorites.map((quote) => {
           return (

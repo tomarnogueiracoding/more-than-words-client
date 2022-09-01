@@ -103,7 +103,7 @@ function SignupPage(props) {
           {/* Submit button */}
           <div className="p-5">
             <button
-              className="px-3 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
+              className="px-8 py-1 my-3 mx-3 rounded-full bg-pink-300 hover:bg-pink-500 hover:text-white"
               type="submit"
             >
               Sign Up

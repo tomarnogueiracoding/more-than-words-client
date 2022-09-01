@@ -12,6 +12,7 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import EditProfilePage from './pages/EditProfilePage/EditProfilePage';
 import SpotifyPlayer from './pages/SpotifyPlayer';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

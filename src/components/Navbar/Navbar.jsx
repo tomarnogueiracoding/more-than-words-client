@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../context/auth.context';
+import axios from 'axios';
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
