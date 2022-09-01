@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../../context/auth.context';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'https://more-than-wordz.herokuapp.com';
+const API_URL = 'http://localhost:5005';
 
 function ProfilePage() {
   const [profile, setProfile] = useState(null);

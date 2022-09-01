@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/auth.context';
 
-const API_URL = 'https://more-than-wordz.herokuapp.com';
+const API_URL = 'http://localhost:5005';
 
 function FavoritesPage() {
   const [userFavorites, setUserFavorites] = useState([]);
@@ -35,8 +35,8 @@ function FavoritesPage() {
   }, []);
 
   return (
-    <div className="bg-amber-400 h-screen">
-      <h3 className="text-2xl">Favorites Page</h3>
+    <div className="bg-gradient-to-r from-amber-400 to-amber-300 min-h-screen py-10">
+      <h1 className="text-2xl text-pink-600 font-bold">Your Favorite Quotes</h1>
       {userFavorites &&
         userFavorites.map((quote) => {
           return (

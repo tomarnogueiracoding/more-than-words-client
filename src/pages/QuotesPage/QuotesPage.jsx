@@ -3,7 +3,7 @@ import axios from 'axios';
 import addToFavoritesImg from '../../assets/img/add-to-favorites.png';
 import { AuthContext } from '../../context/auth.context';
 
-const API_URL = 'https://more-than-wordz.herokuapp.com';
+const API_URL = 'http://localhost:5005';
 
 function QuotesPage() {
   const [famousQuote, setFamousQuote] = useState([]);
@@ -68,7 +68,7 @@ function QuotesPage() {
   }, []);
 
   return (
-    <div className="bg-amber-400 h-screen">
+    <div className="min-h-screen bg-gradient-to-r from-amber-400 to-amber-300">
       {/* Quote Buttons */}
       <div className=" p-5">
         {/* Get famous quote button */}

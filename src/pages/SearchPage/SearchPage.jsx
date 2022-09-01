@@ -1,21 +1,22 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const API_URL = 'https://more-than-wordz.herokuapp.com';
+const API_URL = 'http://localhost:5005';
 
 function SearchPage() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [getResults, setGetResults] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { query };
+    /*  const body = { query }; */
 
     axios
-      .get(`${API_URL}/api/quotes/search`, body)
+      .get(`https://api.quotable.io/search/quotes?query=${query}` /* , body */)
       .then((response) => {
-        setResults(response.data);
+        setGetResults(response.data.results);
+        console.log(response.data.results);
       })
       .catch((error) => console.log(error));
   };
@@ -29,12 +30,13 @@ function SearchPage() {
         <input name="search" value={query} onChange={handleQuery} />
         <button type="submit">Search</button>
       </form>
-      {results.length > 0 &&
-        results.map((quote) => {
+      {getResults.length > 0 &&
+        getResults.map((quote) => {
           return (
             <div>
               <p>{quote.content}</p>
               <p>{quote.author}</p>
+              {/* <p>{quote.author}</p> */}
             </div>
           );
         })}
