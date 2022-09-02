@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
 
-const API_URL = 'http://localhost:5005';
+const API_URL = 'https://more-than-wordz.herokuapp.com';
 
 function SearchPage() {
   const [query, setQuery] = useState('');
